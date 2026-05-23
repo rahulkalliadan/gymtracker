@@ -19,8 +19,7 @@
   --legs:#f59e0b;--legs-dim:#f59e0b18;
   --upper:#a855f7;--upper-dim:#a855f718;
   --lower:#ef4444;--lower-dim:#ef444418;
-  --rad:14px;--rad-sm:8px;
-  --nav-h:54px;
+  --rad:14px;--rad-sm:8px;--nav-h:54px;
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 html{height:100%;}
@@ -33,7 +32,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
 .h-sub{font-size:12px;color:var(--text2);margin-top:1px;}
 .scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:0 14px 16px;}
 .nav{flex-shrink:0;display:grid;grid-template-columns:repeat(6,1fr);background:var(--bg2);border-top:1px solid var(--border);height:var(--nav-h);}
-.nb{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border:none;background:none;color:var(--text3);cursor:pointer;font-size:9px;font-family:'DM Sans',sans-serif;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;padding:0;-webkit-appearance:none;}
+.nb{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border:none;background:none;color:var(--text3);cursor:pointer;font-size:9px;font-family:'DM Sans',sans-serif;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;padding:0;}
 .nb svg{width:19px;height:19px;stroke-width:1.6;}
 .nb.active{color:var(--accent);}
 .card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);padding:14px;margin-bottom:10px;}
@@ -48,6 +47,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
 .bl{background:var(--legs-dim);color:var(--legs);}
 .bu{background:var(--upper-dim);color:var(--upper);}
 .blo{background:var(--lower-dim);color:var(--lower);}
+/* CALENDAR */
 .cal-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);padding:12px;margin-bottom:10px;}
 .cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
 .cal-month{font-size:15px;font-weight:600;}
@@ -65,6 +65,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
 .cal-day.selected .cal-day-inner{background:var(--accent);}
 .cal-day.selected .cal-day-num{color:#0a0a0a;font-weight:700;}
 .cal-day.selected .cal-dot{display:none;}
+.cal-day.has-session .cal-day-inner{background:var(--bg3);}
+/* SPLIT */
 .split-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin-bottom:12px;}
 .split-btn{padding:9px 2px;border-radius:var(--rad-sm);border:1px solid var(--border2);background:var(--bg3);color:var(--text3);font-size:11px;font-weight:600;cursor:pointer;text-align:center;font-family:'DM Sans',sans-serif;text-transform:uppercase;letter-spacing:0.04em;}
 .split-btn.push.sel{background:var(--push-dim);border-color:var(--push);color:var(--push);}
@@ -72,6 +74,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
 .split-btn.legs.sel{background:var(--legs-dim);border-color:var(--legs);color:var(--legs);}
 .split-btn.upper.sel{background:var(--upper-dim);border-color:var(--upper);color:var(--upper);}
 .split-btn.lower.sel{background:var(--lower-dim);border-color:var(--lower);color:var(--lower);}
+/* EXERCISES */
 .ex-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);padding:12px;margin-bottom:10px;}
 .ex-name{font-size:14px;font-weight:600;}
 .ex-sub{font-size:11px;color:var(--text3);margin-top:2px;}
@@ -96,12 +99,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
 .btn-sm{padding:8px 14px;width:auto;display:inline-flex;align-items:center;gap:5px;font-size:13px;margin:0;}
 .alert{border-radius:var(--rad-sm);padding:10px 12px;font-size:12px;margin-bottom:10px;line-height:1.5;}
 .alert-i{background:var(--push-dim);color:#60a5fa;border:1px solid #3b82f630;}
-.alert-s{background:var(--pull-dim);color:var(--pull);border:1px solid var(--pull);}
-.alert-e{background:var(--lower-dim);color:var(--lower);border:1px solid var(--lower);}
+.alert-w{background:var(--legs-dim);color:#fbbf24;border:1px solid #f59e0b30;}
+/* PLAN */
 .plan-ex{display:flex;justify-content:space-between;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--border);gap:8px;}
 .plan-ex:last-child{border-bottom:none;}
 .plan-ex-name{font-size:13px;font-weight:500;}
 .plan-ex-sub{font-size:11px;color:var(--text3);margin-top:2px;}
+/* PROGRESS */
 .prog-select{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:var(--rad-sm);padding:11px 12px;font-size:14px;color:var(--text);margin-bottom:10px;font-family:'DM Sans',sans-serif;-webkit-appearance:none;}
 .graph-wrap{height:150px;position:relative;margin-bottom:4px;}
 .graph-wrap canvas{width:100%;height:100%;}
@@ -113,10 +117,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
 .tag-up{background:#c8f04520;color:var(--accent);border:1px solid #c8f04540;border-radius:99px;font-size:9px;font-weight:700;padding:3px 8px;text-transform:uppercase;white-space:nowrap;}
 .tag-hold{background:var(--legs-dim);color:#fbbf24;border:1px solid #f59e0b30;border-radius:99px;font-size:9px;font-weight:700;padding:3px 8px;text-transform:uppercase;white-space:nowrap;}
 .tag-new{background:var(--push-dim);color:#60a5fa;border:1px solid #3b82f630;border-radius:99px;font-size:9px;font-weight:700;padding:3px 8px;text-transform:uppercase;white-space:nowrap;}
-.hist-item{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);padding:13px;margin-bottom:9px;}
-.hist-date{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:0.05em;}
-.hist-title{font-size:14px;font-weight:600;margin:3px 0 7px;}
-.hist-ex{font-size:11px;color:var(--text2);margin-bottom:2px;}
+/* HISTORY */
+.hist-day-detail{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);padding:14px;margin-bottom:10px;}
+.hist-ex-row{padding:8px 0;border-bottom:1px solid var(--border);font-size:13px;}
+.hist-ex-row:last-child{border-bottom:none;}
+.hist-ex-name{font-weight:500;margin-bottom:4px;}
+.hist-set-row{font-size:12px;color:var(--text2);font-family:'DM Mono',monospace;}
+/* BW */
 .bw-inp-row{display:flex;gap:7px;margin-bottom:10px;}
 .bw-inp-row input{flex:1;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--rad-sm);padding:11px;font-size:16px;color:var(--text);font-family:'DM Mono',monospace;}
 .bw-inp-row input:focus{outline:none;border-color:var(--accent);}
@@ -130,7 +137,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
 .today-card.lower{background:var(--lower-dim);border:1px solid var(--lower);}
 .sec-label{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;margin:14px 0 7px;}
 .empty{text-align:center;padding:40px 16px;color:var(--text3);font-size:13px;}
-/* SYNC STATUS */
 .sync-bar{display:flex;align-items:center;gap:6px;font-size:11px;padding:6px 10px;border-radius:var(--rad-sm);margin-bottom:10px;}
 .sync-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
 .sync-ok{background:var(--pull-dim);color:var(--pull);}
@@ -176,11 +182,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
   <div class="scroll">
     <div class="cal-wrap">
       <div class="cal-header">
-        <button class="cal-nav-btn" onclick="calPrev()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></button>
-        <div class="cal-month" id="cal-month-label"></div>
-        <button class="cal-nav-btn" onclick="calNext()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
+        <button class="cal-nav-btn" onclick="calPrev('log')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <div class="cal-month" id="log-cal-month"></div>
+        <button class="cal-nav-btn" onclick="calNext('log')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
       </div>
-      <div class="cal-grid" id="cal-grid"></div>
+      <div class="cal-grid" id="log-cal-grid"></div>
     </div>
     <div style="font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.09em;margin-bottom:7px;">Select workout split</div>
     <div class="split-grid" id="split-grid"></div>
@@ -226,7 +232,17 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
 <!-- HISTORY -->
 <div class="screen" id="s-history">
   <div class="header"><div><div class="h-title">History</div><div class="h-sub" id="hist-sub"></div></div></div>
-  <div class="scroll" id="hist-body"></div>
+  <div class="scroll">
+    <div class="cal-wrap">
+      <div class="cal-header">
+        <button class="cal-nav-btn" onclick="calPrev('hist')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <div class="cal-month" id="hist-cal-month"></div>
+        <button class="cal-nav-btn" onclick="calNext('hist')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
+      </div>
+      <div class="cal-grid" id="hist-cal-grid"></div>
+    </div>
+    <div id="hist-day-detail"></div>
+  </div>
 </div>
 
 <!-- BW -->
@@ -278,52 +294,46 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
 </div>
 
 <script>
-// ═══ SUPABASE CONFIG ═══
-const SB_URL = 'https://akbprjzqwhsxkrgqxpxr.supabase.co';
-const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFrYnByanpxd2hzeGtyZ3F4cHhyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk1MDg4NTEsImV4cCI6MjA5NTA4NDg1MX0.nEErh0BYa4tSa5faZKl4ukR53QvJVgiscvJpcIyTzoI';
-
-const H = {'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY};
+const SB_URL='https://akbprjzqwhsxkrgqxpxr.supabase.co';
+const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFrYnByanpxd2hzeGtyZ3F4cHhyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk1MDg4NTEsImV4cCI6MjA5NTA4NDg1MX0.nEErh0BYa4tSa5faZKl4ukR53QvJVgiscvJpcIyTzoI';
+const H={'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY};
 
 async function dbGet(table){
-  try{
-    const r=await fetch(`${SB_URL}/rest/v1/${table}?select=*&order=created_at.asc`,{headers:H});
-    if(!r.ok)return[];
-    return await r.json();
-  }catch(e){return[];}
+  try{const r=await fetch(`${SB_URL}/rest/v1/${table}?select=*&order=created_at.asc`,{headers:H});if(!r.ok)return[];return await r.json();}catch(e){return[];}
 }
-
 async function dbInsert(table,data){
-  try{
-    const r=await fetch(`${SB_URL}/rest/v1/${table}`,{method:'POST',headers:{...H,'Prefer':'return=representation'},body:JSON.stringify(data)});
-    return r.ok;
-  }catch(e){return false;}
+  try{const r=await fetch(`${SB_URL}/rest/v1/${table}`,{method:'POST',headers:{...H,'Prefer':'return=representation'},body:JSON.stringify(data)});return r.ok;}catch(e){return false;}
+}
+async function dbUpdate(table,id,data){
+  try{const r=await fetch(`${SB_URL}/rest/v1/${table}?id=eq.${id}`,{method:'PATCH',headers:{...H,'Prefer':'return=representation'},body:JSON.stringify(data)});return r.ok;}catch(e){return false;}
+}
+async function dbDelete(table,id){
+  try{const r=await fetch(`${SB_URL}/rest/v1/${table}?id=eq.${id}`,{method:'DELETE',headers:H});return r.ok;}catch(e){return false;}
 }
 
-// ═══ CACHE (fast local read, cloud write) ═══
 let cache={workouts:[],bodyweight:[]};
-let synced=false;
+// currentSessionId: tracks the DB id of the session being edited today
+// so re-saving updates instead of inserts
+let currentSessionId=null;
+let currentSessionDate=null;
+let currentSessionSplit=null;
 
 async function syncFromCloud(){
   setSyncStatus('syncing');
   try{
     cache.workouts=await dbGet('workouts');
     cache.bodyweight=await dbGet('bodyweight');
-    synced=true;
     setSyncStatus('ok');
-  }catch(e){
-    setSyncStatus('err');
-  }
+  }catch(e){setSyncStatus('err');}
 }
 
 function setSyncStatus(state){
-  const el=document.getElementById('sync-status');
-  if(!el)return;
+  const el=document.getElementById('sync-status');if(!el)return;
   if(state==='ok')el.innerHTML='<div class="sync-bar sync-ok"><div class="sync-dot"></div>Synced to cloud — your data is safe</div>';
-  else if(state==='err')el.innerHTML='<div class="sync-bar sync-err"><div class="sync-dot"></div>Offline — data saved locally, will sync when connected</div>';
-  else el.innerHTML='<div class="sync-bar sync-ing"><div class="sync-dot"></div>Syncing to cloud...</div>';
+  else if(state==='err')el.innerHTML='<div class="sync-bar sync-err"><div class="sync-dot"></div>Offline — will sync when connected</div>';
+  else el.innerHTML='<div class="sync-bar sync-ing"><div class="sync-dot"></div>Syncing...</div>';
 }
 
-// ═══ PLAN DATA ═══
 const PLAN={
   Push:{label:'Push',color:'push',intensity:'Heavy · Strength',rest:'2–3 min main lifts',exercises:[
     {name:'Flat bench press',sets:'4',reps:'4–6',muscle:'Primary chest — heaviest of week'},
@@ -366,16 +376,44 @@ const PLAN={
 };
 const SPLITS=['Push','Pull','Legs','Upper','Lower'];
 
-let calYear=new Date().getFullYear(),calMonth=new Date().getMonth();
+// Calendar state — separate for log and history screens
+let calState={
+  log:{year:new Date().getFullYear(),month:new Date().getMonth()},
+  hist:{year:new Date().getFullYear(),month:new Date().getMonth()}
+};
 let selDate=todayStr(),selSplit='Push',logSets={},curPlanSplit='Push';
+let histSelDate=null;
 
 function todayStr(){return new Date().toISOString().split('T')[0];}
 function fmtDate(iso){return new Date(iso).toLocaleDateString('en-CA',{weekday:'short',month:'short',day:'numeric',year:'numeric'});}
 function fmtShort(iso){return new Date((iso.split('T')[0])+'T12:00:00').toLocaleDateString('en-CA',{month:'short',day:'numeric'});}
+function fmtMonthYear(iso){return new Date((iso.split('T')[0])+'T12:00:00').toLocaleDateString('en-CA',{month:'short',year:'numeric'});}
 function esc(s){return s.replace(/[^a-zA-Z0-9]/g,'_');}
 function greet(){const h=new Date().getHours();return h<12?'Good morning':h<17?'Good afternoon':'Good evening';}
 function colorForSplit(s){return{Push:'var(--push)',Pull:'var(--pull)',Legs:'var(--legs)',Upper:'var(--upper)',Lower:'var(--lower)'}[s]||'var(--text2)';}
 function badgeClass(s){return{Push:'bp',Pull:'bpl',Legs:'bl',Upper:'bu',Lower:'blo'}[s]||'';}
+
+// Get unique sessions (one per date+split combination — latest wins)
+function getUniqueSessions(){
+  const map={};
+  cache.workouts.forEach(s=>{
+    const key=s.date.split('T')[0]+'_'+s.split;
+    // keep the latest (last one in array since sorted by created_at asc)
+    map[key]=s;
+  });
+  return Object.values(map).sort((a,b)=>a.date.localeCompare(b.date));
+}
+
+// Get unique session dates (one per calendar day regardless of split)
+function getSessionDates(){
+  const dates={};
+  getUniqueSessions().forEach(s=>{
+    const d=s.date.split('T')[0];
+    if(!dates[d])dates[d]=[];
+    dates[d].push(s.split);
+  });
+  return dates;
+}
 
 function nav(id,btn){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
@@ -396,93 +434,152 @@ function goLog(){selDate=todayStr();nav('log');}
 function initHome(){
   document.getElementById('home-greet').textContent=greet();
   document.getElementById('home-date').textContent=new Date().toLocaleDateString('en-CA',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
-  const history=cache.workouts;
-  document.getElementById('m-total').textContent=history.length;
+  const sessions=getUniqueSessions();
+  const sessionDates=getSessionDates();
+  // count unique training days total
+  document.getElementById('m-total').textContent=Object.keys(sessionDates).length;
+  // count unique training days this week
   const ws=new Date();ws.setDate(ws.getDate()-ws.getDay()+1);ws.setHours(0,0,0,0);
-  document.getElementById('m-week').textContent=history.filter(s=>new Date(s.date)>=ws).length;
-  const dates=[...new Set(history.map(s=>s.date.split('T')[0]))].sort().reverse();
-  let streak=0;for(let i=0;i<dates.length;i++){const exp=new Date();exp.setDate(exp.getDate()-i);if(dates[i]===exp.toISOString().split('T')[0])streak++;else break;}
+  const weekDates=Object.keys(sessionDates).filter(d=>new Date(d+'T12:00:00')>=ws);
+  document.getElementById('m-week').textContent=weekDates.length;
+  // streak: consecutive unique training days
+  const allDates=Object.keys(sessionDates).sort().reverse();
+  let streak=0;
+  for(let i=0;i<allDates.length;i++){const exp=new Date();exp.setDate(exp.getDate()-i);if(allDates[i]===exp.toISOString().split('T')[0])streak++;else break;}
   document.getElementById('m-streak').textContent=streak;
   const bwLog=cache.bodyweight;
   document.getElementById('home-bw').textContent=bwLog.length?bwLog[bwLog.length-1].weight+'kg':'—';
-  const todaySessions=history.filter(s=>s.date.split('T')[0]===todayStr());
+  // Today's sessions
+  const todaySplits=sessionDates[todayStr()]||[];
   const tc=document.getElementById('home-today-card');
-  if(todaySessions.length>0){
-    tc.innerHTML=todaySessions.map(s=>`<div class="today-card ${s.split.toLowerCase()}"><span class="badge ${badgeClass(s.split)}">${s.split}</span><div style="font-size:20px;font-weight:700;margin:5px 0 2px;letter-spacing:-0.4px;">${PLAN[s.split].intensity.split('·')[0].trim()}</div><div style="font-size:12px;color:var(--text2);">${Object.keys(s.sets||{}).length} exercises logged</div></div>`).join('');
+  if(todaySplits.length>0){
+    tc.innerHTML=todaySplits.map(sp=>{
+      const s=sessions.find(x=>x.date.split('T')[0]===todayStr()&&x.split===sp);
+      return`<div class="today-card ${sp.toLowerCase()}"><span class="badge ${badgeClass(sp)}">${sp}</span><div style="font-size:20px;font-weight:700;margin:5px 0 2px;letter-spacing:-0.4px;">${PLAN[sp].intensity.split('·')[0].trim()}</div><div style="font-size:12px;color:var(--text2);">${Object.keys(s&&s.sets||{}).length} exercises logged</div></div>`;
+    }).join('');
   }else{
     tc.innerHTML=`<div class="card" style="text-align:center;padding:18px;"><div style="color:var(--text3);font-size:13px;">No session logged today</div></div>`;
   }
 }
 
-// CALENDAR
-function renderCal(){
-  document.getElementById('cal-month-label').textContent=new Date(calYear,calMonth,1).toLocaleDateString('en-CA',{month:'long',year:'numeric'});
-  const history=cache.workouts;
-  const loggedDates={};
-  history.forEach(s=>{const d=s.date.split('T')[0];if(!loggedDates[d])loggedDates[d]=[];loggedDates[d].push(s.split);});
-  const grid=document.getElementById('cal-grid');grid.innerHTML='';
+// CALENDAR (shared for log + history)
+function renderCal(ctx){
+  const state=calState[ctx];
+  const monthLabelId=ctx+'-cal-month';
+  const gridId=ctx+'-cal-grid';
+  document.getElementById(monthLabelId).textContent=new Date(state.year,state.month,1).toLocaleDateString('en-CA',{month:'long',year:'numeric'});
+  const sessionDates=getSessionDates();
+  const grid=document.getElementById(gridId);grid.innerHTML='';
   ['S','M','T','W','T','F','S'].forEach(d=>{const el=document.createElement('div');el.className='cal-dow';el.textContent=d;grid.appendChild(el);});
-  const first=new Date(calYear,calMonth,1).getDay();
-  const dim=new Date(calYear,calMonth+1,0).getDate();
+  const first=new Date(state.year,state.month,1).getDay();
+  const dim=new Date(state.year,state.month+1,0).getDate();
   const today=todayStr();
+  const selD=ctx==='log'?selDate:histSelDate;
   for(let i=0;i<first;i++){const el=document.createElement('div');el.className='cal-day empty';el.innerHTML='<div class="cal-day-inner"></div>';grid.appendChild(el);}
   for(let d=1;d<=dim;d++){
-    const ds=`${calYear}-${String(calMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
-    const isSel=ds===selDate,isToday=ds===today,isFuture=ds>today;
+    const ds=`${state.year}-${String(state.month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const isSel=ds===selD,isToday=ds===today,isFuture=ds>today;
+    const hasSess=!!sessionDates[ds];
     let cls='cal-day';
     if(isSel)cls+=' selected';else if(isToday)cls+=' today';
     if(isFuture)cls+=' future';
+    if(hasSess&&!isSel)cls+=' has-session';
     const el=document.createElement('div');el.className=cls;
     let dot='';
-    if(loggedDates[ds]&&!isSel){const col=colorForSplit(loggedDates[ds][0]);dot=`<div class="cal-dot" style="background:${col};"></div>`;}
+    if(hasSess&&!isSel){const col=colorForSplit(sessionDates[ds][0]);dot=`<div class="cal-dot" style="background:${col};"></div>`;}
     el.innerHTML=`<div class="cal-day-inner"><div class="cal-day-num">${d}</div>${dot}</div>`;
-    if(!isFuture){el.onclick=()=>{selDate=ds;renderCal();renderSplitGrid();renderLogBody();};}
+    if(ctx==='log'&&!isFuture){el.onclick=()=>{selDate=ds;currentSessionId=null;renderCal('log');renderSplitGrid();renderLogBody();};}
+    if(ctx==='hist'){el.onclick=()=>{histSelDate=ds;renderCal('hist');renderHistDetail();};}
     grid.appendChild(el);
   }
 }
-function calPrev(){calMonth--;if(calMonth<0){calMonth=11;calYear--;}renderCal();}
-function calNext(){const n=new Date();if(calYear<n.getFullYear()||(calYear===n.getFullYear()&&calMonth<n.getMonth())){calMonth++;if(calMonth>11){calMonth=0;calYear++;}renderCal();}}
+function calPrev(ctx){calState[ctx].month--;if(calState[ctx].month<0){calState[ctx].month=11;calState[ctx].year--;}renderCal(ctx);}
+function calNext(ctx){
+  const n=new Date();
+  if(ctx==='log'||(calState[ctx].year<n.getFullYear()||(calState[ctx].year===n.getFullYear()&&calState[ctx].month<n.getMonth()))){
+    calState[ctx].month++;if(calState[ctx].month>11){calState[ctx].month=0;calState[ctx].year++;}renderCal(ctx);
+  }
+}
 
 // LOG
 function initLog(){
-  calYear=new Date().getFullYear();calMonth=new Date().getMonth();
-  renderCal();renderSplitGrid();renderLogBody();
+  calState.log={year:new Date().getFullYear(),month:new Date().getMonth()};
+  // Check if there's already a session for today+current split
+  resetSessionTracking();
+  renderCal('log');renderSplitGrid();renderLogBody();
 }
+
+function resetSessionTracking(){
+  // Find existing session for current date+split
+  const existing=cache.workouts.filter(s=>s.date.split('T')[0]===selDate&&s.split===selSplit);
+  if(existing.length>0){
+    // Use the latest one
+    const latest=existing[existing.length-1];
+    currentSessionId=latest.id;
+    currentSessionDate=selDate;
+    currentSessionSplit=selSplit;
+  }else{
+    currentSessionId=null;
+    currentSessionDate=selDate;
+    currentSessionSplit=selSplit;
+  }
+}
+
 function renderSplitGrid(){
   const grid=document.getElementById('split-grid');grid.innerHTML='';
   SPLITS.forEach(sp=>{
     const btn=document.createElement('button');
     btn.className='split-btn '+sp.toLowerCase()+(sp===selSplit?' sel':'');
     btn.textContent=sp;
-    btn.onclick=()=>{selSplit=sp;renderSplitGrid();renderLogBody();};
+    btn.onclick=()=>{selSplit=sp;resetSessionTracking();renderSplitGrid();renderLogBody();};
     grid.appendChild(btn);
   });
 }
+
 function getLastWeights(exName){
-  const history=cache.workouts;
-  for(let i=history.length-1;i>=0;i--){
-    const s=history[i];
+  // Find the most recent session that has this exercise
+  // excluding current date so "last" means last time, not today
+  const sessions=getUniqueSessions();
+  for(let i=sessions.length-1;i>=0;i--){
+    const s=sessions[i];
+    if(s.date.split('T')[0]===selDate)continue; // skip today
     if(s.sets&&s.sets[exName]){const sets=s.sets[exName].filter(x=>x&&x.weight);if(sets.length)return{sets,date:s.date};}
   }
   return null;
 }
+
 function renderLogBody(){
   logSets={};
   const p=PLAN[selSplit];
   const body=document.getElementById('log-body');body.innerHTML='';
   const dl=new Date(selDate+'T12:00:00').toLocaleDateString('en-CA',{weekday:'long',month:'short',day:'numeric'});
-  body.innerHTML=`<div class="alert alert-i"><strong>${selSplit} — ${p.intensity}</strong> · ${dl}<br>Rest: ${p.rest}</div>`;
+  // Check if we're updating an existing session
+  const existingSession=currentSessionId?cache.workouts.find(s=>s.id===currentSessionId):null;
+  if(existingSession){
+    body.innerHTML=`<div class="alert alert-w">Updating existing ${selSplit} session for ${dl}. Save will overwrite.</div>`;
+  }else{
+    body.innerHTML=`<div class="alert alert-i"><strong>${selSplit} — ${p.intensity}</strong> · ${dl}<br>Rest: ${p.rest}</div>`;
+  }
   p.exercises.forEach(ex=>{
     logSets[ex.name]=[];
     const last=getLastWeights(ex.name);
-    const defW=last?last.sets[0].weight:'';const defR=last?last.sets[0].reps:'';
+    // If updating, pre-fill from existing session
+    const existSets=existingSession&&existingSession.sets&&existingSession.sets[ex.name];
+    const defW=existSets?existSets[0].weight:(last?last.sets[0].weight:'');
+    const defR=existSets?existSets[0].reps:(last?last.sets[0].reps:'');
     const card=document.createElement('div');card.className='ex-card';
     const lastHtml=last?`<div class="last-info">Last: <span>${last.sets[0].weight}kg × ${last.sets[0].reps}</span> on ${fmtShort(last.date)}</div>`:'';
     card.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;"><div><div class="ex-name">${ex.name}</div><div class="ex-sub">${ex.muscle}</div></div><div style="text-align:right;"><div style="font-size:9px;color:var(--text3);">Target</div><div class="ex-target">${ex.sets}×${ex.reps}</div></div></div>${lastHtml}<div class="set-hdr"><span>#</span><span>kg</span><span>Reps</span><span>✓</span><span></span></div><div id="sets-${esc(ex.name)}"></div><button class="add-set" onclick="addSet('${ex.name}')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Add set</button>`;
     body.appendChild(card);
-    for(let i=0;i<(parseInt(ex.sets)||3);i++)addSet(ex.name,defW,defR,true);
+    const numSets=existSets?existSets.length:(parseInt(ex.sets)||3);
+    for(let i=0;i<numSets;i++){
+      const w=existSets?existSets[i].weight:defW;
+      const r=existSets?existSets[i].reps:defR;
+      addSet(ex.name,w,r,true);
+    }
   });
 }
+
 function addSet(exName,defW='',defR='',silent=false){
   if(!logSets[exName])logSets[exName]=[];
   const idx=logSets[exName].length;
@@ -502,17 +599,32 @@ async function saveSession(){
   if(!Object.keys(validSets).length){alert('Log at least one set with weight and reps.');return;}
   const btn=document.getElementById('save-btn');
   btn.textContent='Saving...';btn.style.background='#f59e0b';btn.style.borderColor='#f59e0b';
-  const entry={date:selDate+'T'+new Date().toTimeString().split(' ')[0],split:selSplit,sets:validSets};
-  const ok=await dbInsert('workouts',entry);
-  if(ok){
-    cache.workouts.push(entry);
-    btn.textContent='✓ Saved to cloud!';btn.style.background='#22c55e';btn.style.borderColor='#22c55e';
+
+  if(currentSessionId){
+    // UPDATE existing session — do not create a new one
+    const ok=await dbUpdate('workouts',currentSessionId,{sets:validSets});
+    // Update cache
+    const idx=cache.workouts.findIndex(s=>s.id===currentSessionId);
+    if(idx>=0)cache.workouts[idx].sets=validSets;
+    btn.textContent=ok?'✓ Updated!':'✓ Saved locally';
   }else{
-    cache.workouts.push(entry);
-    btn.textContent='✓ Saved locally';btn.style.background='#f59e0b';btn.style.borderColor='#f59e0b';
+    // CREATE new session
+    const entry={date:selDate+'T'+new Date().toTimeString().split(' ')[0],split:selSplit,sets:validSets};
+    const ok=await dbInsert('workouts',entry);
+    if(ok){
+      // Re-sync to get the real ID from DB
+      await syncFromCloud();
+      // Find the newly created session to get its ID
+      const created=cache.workouts.filter(s=>s.date.split('T')[0]===selDate&&s.split===selSplit);
+      if(created.length>0){currentSessionId=created[created.length-1].id;}
+    }else{
+      cache.workouts.push(entry);
+    }
+    btn.textContent='✓ Saved to cloud!';
   }
+  btn.style.background='#22c55e';btn.style.borderColor='#22c55e';
   setTimeout(()=>{btn.innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Save session';btn.style.background='';btn.style.borderColor='';},2500);
-  renderCal();initHome();
+  renderCal('log');initHome();
 }
 
 // PLAN
@@ -524,7 +636,7 @@ function initPlan(){
     btn.textContent=sp;btn.onclick=()=>{curPlanSplit=sp;initPlan();};grid.appendChild(btn);
   });
   const p=PLAN[curPlanSplit];
-  document.getElementById('plan-body').innerHTML=`<div class="alert alert-i">${curPlanSplit} — ${p.intensity} · Rest: ${p.rest}</div><div class="card">${p.exercises.map((e,i)=>`<div class="plan-ex"><div><div class="plan-ex-name">${i+1}. ${e.name}</div><div class="plan-ex-sub">${e.muscle}</div></div><div style="font-size:12px;font-family:'DM Mono',monospace;color:var(--text2);flex-shrink:0;margin-left:8px;">${e.sets}×${e.reps}</div></div>`).join('')}</div><button class="btn btn-accent" onclick="selSplit='${curPlanSplit}';nav('log')">Log ${curPlanSplit} today</button>`;
+  document.getElementById('plan-body').innerHTML=`<div class="alert alert-i">${curPlanSplit} — ${p.intensity} · Rest: ${p.rest}</div><div class="card">${p.exercises.map((e,i)=>`<div class="plan-ex"><div><div class="plan-ex-name">${i+1}. ${e.name}</div><div class="plan-ex-sub">${e.muscle}</div></div><div style="font-size:12px;font-family:'DM Mono',monospace;color:var(--text2);flex-shrink:0;margin-left:8px;">${e.sets}×${e.reps}</div></div>`).join('')}</div><button class="btn btn-accent" onclick="selSplit='${curPlanSplit}';resetSessionTracking();nav('log')">Log ${curPlanSplit} today</button>`;
 }
 
 // PROGRESS
@@ -534,68 +646,148 @@ function initProgress(){
   sel.innerHTML=exs.map(e=>`<option value="${e}">${e}</option>`).join('');
   renderGraph();renderOverload();
 }
+
 function renderGraph(){
   const exName=document.getElementById('prog-select').value;
-  const history=cache.workouts;
+  const sessions=getUniqueSessions();
   const points=[];
-  history.forEach(s=>{if(s.sets&&s.sets[exName]){const sets=s.sets[exName].filter(x=>x&&x.weight);if(sets.length){const maxW=Math.max(...sets.map(x=>parseFloat(x.weight)||0));points.push({date:s.date,weight:maxW});}}});
+  sessions.forEach(s=>{
+    if(s.sets&&s.sets[exName]){
+      const sets=s.sets[exName].filter(x=>x&&x.weight);
+      if(sets.length){
+        const maxW=Math.max(...sets.map(x=>parseFloat(x.weight)||0));
+        // Aggregate by date — keep max weight per date
+        const d=s.date.split('T')[0];
+        const existing=points.find(p=>p.date===d);
+        if(existing){existing.weight=Math.max(existing.weight,maxW);}
+        else{points.push({date:d,weight:maxW});}
+      }
+    }
+  });
+  points.sort((a,b)=>a.date.localeCompare(b.date));
+
   const statsEl=document.getElementById('graph-stats');
   const canvas=document.getElementById('prog-canvas');
   const ctx=canvas.getContext('2d');
   canvas.width=canvas.offsetWidth||300;canvas.height=150;
   ctx.clearRect(0,0,canvas.width,canvas.height);
   const W=canvas.width,H=canvas.height;
-  if(points.length<2){ctx.fillStyle='#555';ctx.font='12px DM Sans';ctx.textAlign='center';ctx.fillText(points.length===0?'No data — log this exercise first':'Log 2+ sessions to see graph',W/2,H/2);document.getElementById('prog-x').innerHTML='';statsEl.style.display='none';return;}
+
+  if(points.length<2){
+    ctx.fillStyle='#555';ctx.font='12px DM Sans';ctx.textAlign='center';
+    ctx.fillText(points.length===0?'No data — log this exercise first':'Log 2+ sessions to see graph',W/2,H/2);
+    document.getElementById('prog-x').innerHTML='';statsEl.style.display='none';return;
+  }
+
+  // Smart compression: if >30 points, aggregate to weekly; if >100 points, aggregate to monthly
+  let displayPoints=points;
+  if(points.length>100){
+    // Monthly aggregation
+    const monthly={};
+    points.forEach(p=>{const k=p.date.substring(0,7);if(!monthly[k]||p.weight>monthly[k].weight){monthly[k]={date:k+'-01',weight:p.weight};}});
+    displayPoints=Object.values(monthly).sort((a,b)=>a.date.localeCompare(b.date));
+  }else if(points.length>30){
+    // Weekly aggregation
+    const weekly={};
+    points.forEach(p=>{const d=new Date(p.date+'T12:00:00');const wk=d.toISOString().substring(0,10);const mon=new Date(d);mon.setDate(d.getDate()-d.getDay()+1);const k=mon.toISOString().split('T')[0];if(!weekly[k]||p.weight>weekly[k].weight){weekly[k]={date:k,weight:p.weight};}});
+    displayPoints=Object.values(weekly).sort((a,b)=>a.date.localeCompare(b.date));
+  }
+
   statsEl.style.display='grid';
   document.getElementById('gs-s').textContent=points[0].weight;
   document.getElementById('gs-c').textContent=points[points.length-1].weight;
   const gain=(points[points.length-1].weight-points[0].weight).toFixed(1);
   const gEl=document.getElementById('gs-g');gEl.textContent=(gain>0?'+':'')+gain;gEl.style.color=gain>0?'var(--accent)':gain<0?'#ef4444':'var(--text2)';
+
   const pad={t:10,r:8,b:8,l:34};const cw=W-pad.l-pad.r,ch=H-pad.t-pad.b;
-  const ws=points.map(p=>p.weight);const minW=Math.min(...ws)*0.97,maxW=Math.max(...ws)*1.03,range=maxW-minW||1;
-  const tx=i=>pad.l+i*(cw/(points.length-1));const ty=w=>pad.t+ch-(((w-minW)/range)*ch);
+  const ws=displayPoints.map(p=>p.weight);const minW=Math.min(...ws)*0.97,maxW=Math.max(...ws)*1.03,range=maxW-minW||1;
+  const tx=i=>pad.l+i*(cw/(displayPoints.length-1));const ty=w=>pad.t+ch-(((w-minW)/range)*ch);
   ctx.strokeStyle='#2a2a2a';ctx.lineWidth=1;
   for(let i=0;i<=3;i++){const y=pad.t+(ch/3)*i;ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(pad.l+cw,y);ctx.stroke();ctx.fillStyle='#555';ctx.font='9px DM Mono';ctx.textAlign='right';ctx.fillText(Math.round(maxW-((range/3)*i)),pad.l-3,y+3);}
   const grad=ctx.createLinearGradient(0,pad.t,0,H);grad.addColorStop(0,'#c8f04525');grad.addColorStop(1,'#c8f04503');
-  ctx.beginPath();points.forEach((p,i)=>{i===0?ctx.moveTo(tx(i),ty(p.weight)):ctx.lineTo(tx(i),ty(p.weight));});ctx.lineTo(tx(points.length-1),H-pad.b);ctx.lineTo(tx(0),H-pad.b);ctx.closePath();ctx.fillStyle=grad;ctx.fill();
-  ctx.beginPath();ctx.strokeStyle='#c8f045';ctx.lineWidth=2;ctx.lineJoin='round';points.forEach((p,i)=>{i===0?ctx.moveTo(tx(i),ty(p.weight)):ctx.lineTo(tx(i),ty(p.weight));});ctx.stroke();
-  points.forEach((p,i)=>{ctx.beginPath();ctx.arc(tx(i),ty(p.weight),3,0,Math.PI*2);ctx.fillStyle='#c8f045';ctx.fill();ctx.strokeStyle='#0a0a0a';ctx.lineWidth=1.5;ctx.stroke();});
-  const show=points.length<=4?points:[points[0],points[Math.floor(points.length/2)],points[points.length-1]];
-  document.getElementById('prog-x').innerHTML=show.map(p=>`<span>${fmtShort(p.date)}</span>`).join('');
+  ctx.beginPath();displayPoints.forEach((p,i)=>{i===0?ctx.moveTo(tx(i),ty(p.weight)):ctx.lineTo(tx(i),ty(p.weight));});ctx.lineTo(tx(displayPoints.length-1),H-pad.b);ctx.lineTo(tx(0),H-pad.b);ctx.closePath();ctx.fillStyle=grad;ctx.fill();
+  ctx.beginPath();ctx.strokeStyle='#c8f045';ctx.lineWidth=2;ctx.lineJoin='round';displayPoints.forEach((p,i)=>{i===0?ctx.moveTo(tx(i),ty(p.weight)):ctx.lineTo(tx(i),ty(p.weight));});ctx.stroke();
+  displayPoints.forEach((p,i)=>{ctx.beginPath();ctx.arc(tx(i),ty(p.weight),3,0,Math.PI*2);ctx.fillStyle='#c8f045';ctx.fill();ctx.strokeStyle='#0a0a0a';ctx.lineWidth=1.5;ctx.stroke();});
+
+  // Smart x labels: show max 4
+  const step=Math.ceil(displayPoints.length/4);
+  const labelPts=displayPoints.filter((_,i)=>i===0||i===displayPoints.length-1||i%step===0);
+  document.getElementById('prog-x').innerHTML=labelPts.map(p=>`<span>${fmtShort(p.date)}</span>`).join('');
 }
+
 function renderOverload(){
-  const history=cache.workouts;const byEx={};
-  history.forEach(s=>{if(!s.sets)return;Object.keys(s.sets).forEach(ex=>{if(!byEx[ex])byEx[ex]=[];byEx[ex].push({date:s.date,sets:s.sets[ex]});});});
+  const sessions=getUniqueSessions();
+  // Build exercise history: for each exercise, collect all sessions that logged it
+  // Key insight: an exercise belongs to a split — show it under that split
+  const byEx={};
+  sessions.forEach(s=>{
+    if(!s.sets)return;
+    Object.keys(s.sets).forEach(ex=>{
+      if(!byEx[ex])byEx[ex]=[];
+      byEx[ex].push({date:s.date,split:s.split,sets:s.sets[ex]});
+    });
+  });
+
   let html='';
   SPLITS.forEach(sp=>{
-    const exs=PLAN[sp].exercises.filter(e=>byEx[e.name]&&byEx[e.name].length>0);
+    // Only show exercises that belong to this split's plan
+    const planExNames=PLAN[sp].exercises.map(e=>e.name);
+    const exs=planExNames.filter(name=>byEx[name]&&byEx[name].length>0);
     if(!exs.length)return;
     html+=`<div class="sec-label">${sp}</div><div class="card">`;
-    exs.forEach(ex=>{
-      const logs=byEx[ex.name];const last=logs[logs.length-1];const vs=last.sets.filter(s=>s&&s.weight&&s.reps);
-      if(!vs.length){html+=`<div class="ol-row"><div><div class="ol-name">${ex.name}</div></div><span class="tag-new">New</span></div>`;return;}
+    exs.forEach(exName=>{
+      const ex=PLAN[sp].exercises.find(e=>e.name===exName);
+      const logs=byEx[exName];
+      const last=logs[logs.length-1];
+      const vs=last.sets.filter(s=>s&&s.weight&&s.reps);
+      if(!vs.length){html+=`<div class="ol-row"><div><div class="ol-name">${exName}</div></div><span class="tag-new">New</span></div>`;return;}
       const maxW=Math.max(...vs.map(s=>parseFloat(s.weight)||0));
       const avgR=Math.round(vs.reduce((a,s)=>a+(parseInt(s.reps)||0),0)/vs.length);
       const topR=parseInt((ex.reps||'8').split('–')[1]||ex.reps||'8');
       const up=logs.length>=2&&avgR>=topR;
-      html+=`<div class="ol-row"><div><div class="ol-name">${ex.name}</div><div class="ol-last">${maxW}kg · avg ${avgR} reps · target ${ex.sets}×${ex.reps}</div></div><span class="${up?'tag-up':'tag-hold'}">${up?'↑ Increase':'Hold'}</span></div>`;
+      html+=`<div class="ol-row"><div><div class="ol-name">${exName}</div><div class="ol-last">${maxW}kg · avg ${avgR} reps · target ${ex.sets}×${ex.reps}</div></div><span class="${up?'tag-up':'tag-hold'}">${up?'↑ Increase':'Hold'}</span></div>`;
     });
     html+='</div>';
   });
   document.getElementById('ol-body').innerHTML=html||'<div class="empty">Log sessions to see recommendations</div>';
 }
 
-// HISTORY
+// HISTORY — calendar + day detail
 function initHistory(){
-  const history=cache.workouts;
-  document.getElementById('hist-sub').textContent=history.length+' session'+(history.length===1?'':'s')+' logged';
-  const body=document.getElementById('hist-body');
-  if(!history.length){body.innerHTML='<div class="empty">No sessions yet. Tap Log to start.</div>';return;}
-  body.innerHTML=[...history].reverse().map(s=>{
-    const exCount=Object.keys(s.sets||{}).length;
-    const highlights=Object.keys(s.sets||{}).slice(0,3).map(ex=>{const sets=(s.sets[ex]||[]).filter(x=>x&&x.weight);if(!sets.length)return'';const maxW=Math.max(...sets.map(x=>parseFloat(x.weight)||0));const maxR=Math.max(...sets.map(x=>parseInt(x.reps)||0));return`<div class="hist-ex">${ex}: <span style="color:var(--text);font-family:'DM Mono',monospace;">${maxW}kg × ${maxR}</span></div>`;}).join('');
-    return`<div class="hist-item"><div style="display:flex;justify-content:space-between;align-items:center;"><div class="hist-date">${fmtDate(s.date)}</div><span class="badge ${badgeClass(s.split)}">${s.split}</span></div><div class="hist-title">${exCount} exercise${exCount===1?'':'s'}</div>${highlights}</div>`;
-  }).join('');
+  calState.hist={year:new Date().getFullYear(),month:new Date().getMonth()};
+  const sessions=getUniqueSessions();
+  document.getElementById('hist-sub').textContent=Object.keys(getSessionDates()).length+' training days logged';
+  renderCal('hist');
+  // Show today's detail if it has sessions, else empty
+  if(getSessionDates()[todayStr()]){histSelDate=todayStr();}
+  renderHistDetail();
+}
+
+function renderHistDetail(){
+  const body=document.getElementById('hist-day-detail');
+  if(!histSelDate){body.innerHTML='<div class="empty">Tap a date on the calendar to see your workout</div>';return;}
+  const sessionDates=getSessionDates();
+  const splits=sessionDates[histSelDate];
+  if(!splits||!splits.length){body.innerHTML=`<div class="empty">No session logged on ${fmtShort(histSelDate)}</div>`;return;}
+  const sessions=getUniqueSessions();
+  const dateLabel=new Date(histSelDate+'T12:00:00').toLocaleDateString('en-CA',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+  let html=`<div style="font-size:13px;font-weight:600;color:var(--text2);margin-bottom:10px;">${dateLabel}</div>`;
+  splits.forEach(sp=>{
+    const s=sessions.find(x=>x.date.split('T')[0]===histSelDate&&x.split===sp);
+    if(!s)return;
+    html+=`<div class="hist-day-detail"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;"><span style="font-size:15px;font-weight:600;">${sp} session</span><span class="badge ${badgeClass(sp)}">${PLAN[sp].intensity.split('·')[0].trim()}</span></div>`;
+    Object.keys(s.sets||{}).forEach(exName=>{
+      const sets=(s.sets[exName]||[]).filter(x=>x&&x.weight&&x.reps);
+      if(!sets.length)return;
+      html+=`<div class="hist-ex-row"><div class="hist-ex-name">${exName}</div>`;
+      sets.forEach((set,i)=>{
+        html+=`<div class="hist-set-row">Set ${i+1}: ${set.weight}kg × ${set.reps} reps</div>`;
+      });
+      html+=`</div>`;
+    });
+    html+=`</div>`;
+  });
+  body.innerHTML=html;
 }
 
 // BODY WEIGHT
@@ -607,6 +799,7 @@ async function logBW(){
   cache.bodyweight.push(entry);
   inp.value='';initBW();initHome();
 }
+
 function initBW(){
   const log=cache.bodyweight;const startW=81.5;
   if(log.length){const lat=log[log.length-1].weight;document.getElementById('bw-c').textContent=lat;const ch=(lat-startW).toFixed(1);const el=document.getElementById('bw-ch');el.textContent=(ch>0?'+':'')+ch;el.style.color=ch<0?'var(--accent)':ch>0?'#ef4444':'var(--text2)';}
@@ -630,7 +823,6 @@ function initBW(){
   logEl.innerHTML=[...log].reverse().map((l,i,arr)=>{const prev=arr[i+1];const ch=prev?(l.weight-prev.weight).toFixed(1):null;const chHtml=ch!==null?(parseFloat(ch)>0?`<span style="color:#ef4444;font-size:11px;margin-right:6px;">+${ch}</span>`:`<span style="color:var(--accent);font-size:11px;margin-right:6px;">${ch}</span>`):'';return`<div class="bw-row"><div style="font-size:12px;">${fmtDate(l.date)}</div><div style="display:flex;align-items:center;">${chHtml}<span style="font-size:15px;font-weight:600;font-family:'DM Mono',monospace;">${l.weight} kg</span></div></div>`;}).join('');
 }
 
-// ═══ START ═══
 async function init(){
   setSyncStatus('syncing');
   await syncFromCloud();
